@@ -19,7 +19,7 @@ ll power(ll a,ll b)
 }
     ll inverse(ll x)
     {
-        return power(x,mod-2);
+        return power(x,mod-2);// this gives the inverse modulo of a particular number with mod
     }
     void factfill()
     {
@@ -38,7 +38,7 @@ ll power(ll a,ll b)
         factfill();
         if(r>n) return 0;
         ll numerator=fact[n];
-        ll denomiantor=(infact[r]*infact[n-r])%mod;
+        ll denomiantor=(infact[r]*infact[n-r])%mod;//we use inverse modulo here
         return (numerator*denomiantor)%mod;
         //return ans;
     }
