@@ -2,7 +2,7 @@
 Binary Exponentation can be done using bitwise rule and divide and rule. 
 If we use a for loop to calculate the power of a number , it is helpful for numbers in smaller range .
 What if , you need to caluculate pow(2,100) ??? 
-Then binary exponentation is very useful !!
+Then binary exponentation is very useful !!   
 Approach:
 ==========
 power(base,exp)
