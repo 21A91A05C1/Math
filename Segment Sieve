@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+using namespace std;
+void generateSieve(vector<int>&primes)
+{
+    primes[0]=0;
+    primes[1]=0;
+    for(int i=2;i*i<=1e6+1;i++)
+    {
+        for(int j=i*i;j<1e6+1;j+=i)
+        {
+            primes[j]=0;
+        }
+    }
+}
+void fun()
+{
+    int l,r;
+    cin>>l>>r;
+    vector<int>primes(1e6+1,1);
+    generateSieve(primes);
+    vector<int>dummy(1e6+1,1);
+    int s=sqrt(r);
+    int diff=r-l;
+    vector<int>factors;
+    for(int i=2;i<=s;i++)
+    {
+        if(primes[i]==1) factors.push_back(i);
+    }
+    for(int i=0; i<factors.size();i++)
+    {
+        int rem=l/factors[i];
+        rem*=factors[i];
+        // cout<<rem*factors[i]<<" ";
+        if(rem<l) rem+=factors[i];
+        for(int j=rem-l;j<1e6+1;j+=factors[i])
+        {
+            dummy[j]=0;
+        }
+    }
+    for(int i=0;i<=(r-l);i++)
+    {
+        cout<<dummy[i]<<" ";
+    }
+    
+    
+}
+int main()
+{
+    fun();
+}
